@@ -1,0 +1,29 @@
+# Environnement virtuel
+venv/
+
+# Fichiers Python compilés
+__pycache__/
+*.pyc
+*.pyo
+
+# Base de données
+data/assistant.db
+
+# Variables d'environnement
+.env
+
+# Exports temporaires
+exports/*.pdf
+exports/*.html
+exports/*.md
+
+# IDE
+.vscode/
+.idea/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Fichiers système
+.DS_Store
+Thumbs.db
