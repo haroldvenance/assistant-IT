@@ -30,7 +30,7 @@ def _handle_http_error(response: requests.Response):
 def api_get(
     endpoint: str,
     headers: Optional[Dict[str, str]] = None,
-    timeout: int = 10
+    timeout: int = 120  # <-- augmenté pour Render cold start
 ) -> Optional[Any]:
     """Send a GET request and return parsed JSON, or None on failure."""
     try:
@@ -50,7 +50,7 @@ def api_post(
     json: Optional[Dict[str, Any]] = None,
     data: Optional[Dict[str, str]] = None,
     headers: Optional[Dict[str, str]] = None,
-    timeout: int = 10
+    timeout: int = 120  # <-- augmenté
 ) -> Optional[Any]:
     """Send a POST request and return parsed JSON, or None on failure."""
     try:
@@ -69,7 +69,7 @@ def api_put(
     endpoint: str,
     json: Dict[str, Any],
     headers: Optional[Dict[str, str]] = None,
-    timeout: int = 10
+    timeout: int = 120  # <-- augmenté
 ) -> Optional[Any]:
     """Send a PUT request and return parsed JSON, or None on failure."""
     try:
@@ -87,7 +87,7 @@ def api_put(
 def api_delete(
     endpoint: str,
     headers: Optional[Dict[str, str]] = None,
-    timeout: int = 10
+    timeout: int = 120  # <-- augmenté
 ) -> bool:
     """Send a DELETE request. Returns True on success, False otherwise."""
     try:
@@ -106,7 +106,7 @@ def api_post_stream(
     endpoint: str,
     json_data: Dict[str, Any],
     headers: Optional[Dict[str, str]] = None,
-    timeout: int = 60
+    timeout: int = 180  # <-- très long pour le streaming après cold start
 ) -> Generator[str, None, None]:
     """Send a POST request for streaming and yield tokens (SSE format)."""
     try:
